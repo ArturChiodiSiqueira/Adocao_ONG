@@ -40,6 +40,3 @@ select * from Pessoa
 select * from Animal
 select * from Adocao
 select * from AnimaisDisponiveis
-
-insert AnimaisDisponiveis values (1);
-insert AnimaisDisponiveis values (2);
