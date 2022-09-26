@@ -93,6 +93,8 @@ namespace Adocao_ONG
 
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("PESSOAS CADASTRADAS:\n");
                 while (reader.Read())
                 {
                     Console.WriteLine("{0}", reader.GetString(0));
@@ -360,6 +362,8 @@ namespace Adocao_ONG
 
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("ANIMAIS CADASTRADOS:\n");
                 while (reader.Read())
                 {
                     Console.WriteLine("{0}", reader.GetInt32(0));
@@ -596,6 +600,63 @@ namespace Adocao_ONG
             conexaosql.Close();
 
             Console.WriteLine("Adoção concluida!\n");
+            Console.ReadKey();
+        }
+
+        public void SelecionarAnimaisAdotadosBanco()
+        {
+            Animal animal = new Animal();
+
+            Banco conn = new Banco();
+            SqlConnection conexaosql = new SqlConnection(conn.Caminho());
+            conexaosql.Open();
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT Cpf, Chip FROM Adocao";
+
+            cmd.Connection = conexaosql;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine("ADOÇÕES:\n");
+                while (reader.Read())
+                {
+                    Console.WriteLine("{0}", reader.GetString(0));
+                    Console.WriteLine("{0}", reader.GetInt32(1));
+                    Console.WriteLine("\n-------------------------------\n");
+                }
+            }
+            conexaosql.Close();
+            Console.ReadKey();
+        }
+
+        public void SelecionarAnimaisDisponiveisBanco()
+        {
+            Animal animal = new Animal();
+
+            Banco conn = new Banco();
+            SqlConnection conexaosql = new SqlConnection(conn.Caminho());
+            conexaosql.Open();
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT Chip FROM AnimaisDisponiveis";
+
+            cmd.Connection = conexaosql;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("ANIMAIS DISPONIVEIS PARA ADOÇÃO:\n");
+                while (reader.Read())
+                {
+                    Console.WriteLine("{0}", reader.GetInt32(0));
+                    Console.WriteLine("\n-------------------------------\n");
+                }
+            }
+            conexaosql.Close();
             Console.ReadKey();
         }
         #endregion
