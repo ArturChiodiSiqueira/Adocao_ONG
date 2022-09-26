@@ -80,7 +80,7 @@ namespace Adocao_ONG
 
             conexaosql.Close();
 
-            Console.WriteLine("cadastro concluido\n");
+            Console.WriteLine("Cadastro Concluído\n");
             Console.ReadKey();
         }
 
@@ -133,7 +133,7 @@ namespace Adocao_ONG
             cmd.CommandText = "DELETE FROM Pessoa where Cpf = @Cpf";
             cmd.Connection = conexaosql;
 
-            Console.Write("informe o CPF da pessoa que deseja deletar: ");
+            Console.Write("Informe o CPF da pessoa que deseja deletar: ");
             string cpfRemovido = Console.ReadLine();
 
             cmd.Parameters.Add(new SqlParameter("@Cpf", cpfRemovido));
@@ -152,7 +152,7 @@ namespace Adocao_ONG
             Banco conn = new Banco();
             SqlConnection conexaoSql = new SqlConnection(conn.Caminho());
 
-            Console.WriteLine("Informe o cpf que deseja atualizar");
+            Console.Write("Informe o CPF que deseja atualizar");
             string cpfDigitado = Console.ReadLine();
 
             conexaoSql.Open();
@@ -178,7 +178,7 @@ namespace Adocao_ONG
 
             if (count == 0)
             {
-                Console.WriteLine("CPF digitado não localizado");
+                Console.WriteLine("CPF digitado não localizado!");
                 Console.ReadKey();
                 return;
             }
@@ -187,12 +187,12 @@ namespace Adocao_ONG
             do
             {
                 Console.WriteLine("Informe a opcao que deseja alterar: ");
-                Console.WriteLine("1- Nome");
-                Console.WriteLine("2- Sexo");
-                Console.WriteLine("3- Data de Nascimento");
-                Console.WriteLine("4- Telefone");
-                Console.WriteLine("5- Endereço");
-                Console.Write("Informe a opcao: ");
+                Console.WriteLine(" 1 - Nome");
+                Console.WriteLine(" 2 - Sexo");
+                Console.WriteLine(" 3 - Data de Nascimento");
+                Console.WriteLine(" 4 - Telefone");
+                Console.WriteLine(" 5 - Endereço");
+                Console.Write(" Informe a opcao: ");
 
                 try
                 {
@@ -217,7 +217,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Nome alterado com secesso");
+                    Console.WriteLine("Nome alterado com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -247,7 +247,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Data de nascimento alterada com secesso");
+                    Console.WriteLine("Data de nascimento alterada com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -262,7 +262,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Telefone alterado com secesso");
+                    Console.WriteLine("Telefone alterado com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -298,7 +298,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Endereço alterado com secesso");
+                    Console.WriteLine("Endereço alterado com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -372,7 +372,7 @@ namespace Adocao_ONG
 
             conexaosql.Close();
 
-            Console.WriteLine("cadastro concluido\n");
+            Console.WriteLine("Cadastro concluído\n");
             Console.ReadKey();
         }
 
@@ -419,14 +419,14 @@ namespace Adocao_ONG
             cmd.CommandText = "DELETE FROM Animal where Chip = @Chip";
             cmd.Connection = conexaosql;
 
-            Console.Write("informe o CHIP do animal que deseja deletar: ");
+            Console.Write("Informe o CHIP do animal que deseja deletar: ");
             int chipRemovido = int.Parse(Console.ReadLine());
 
             cmd.Parameters.Add(new SqlParameter("@Chip", chipRemovido));
 
             cmd.ExecuteNonQuery();
 
-            Console.WriteLine("animal deletado com sucesso.");
+            Console.WriteLine("Animal deletado com sucesso.");
 
             conexaosql.Close();
         }
@@ -438,7 +438,7 @@ namespace Adocao_ONG
             Banco conn = new Banco();
             SqlConnection conexaoSql = new SqlConnection(conn.Caminho());
 
-            Console.WriteLine("Informe o CHIP que deseja atualizar");
+            Console.Write("Informe o CHIP que deseja atualizar");
             string chipDigitado = Console.ReadLine();
 
             conexaoSql.Open();
@@ -464,7 +464,7 @@ namespace Adocao_ONG
 
             if (count == 0)
             {
-                Console.WriteLine("CHIP digitado não localizado");
+                Console.WriteLine("CHIP digitado não localizado!");
                 Console.ReadKey();
                 return;
             }
@@ -473,11 +473,11 @@ namespace Adocao_ONG
             do
             {
                 Console.Write("Informe a opcao que deseja alterar: ");
-                Console.WriteLine("1- Familia");
-                Console.WriteLine("2- Raça");
-                Console.WriteLine("3- Sexo");
-                Console.WriteLine("4- Nome do animal");
-                Console.Write("Informe a opcao: ");
+                Console.WriteLine(" 1 - Familia");
+                Console.WriteLine(" 2 - Raça");
+                Console.WriteLine(" 3 - Sexo");
+                Console.WriteLine(" 4 - Nome do animal");
+                Console.Write(" Informe a opcao: ");
 
                 try
                 {
@@ -502,7 +502,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Familia alterada com secesso");
+                    Console.WriteLine("Familia alterada com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -517,7 +517,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Raca alterado com secesso");
+                    Console.WriteLine("Raca alterado com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -532,7 +532,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Sexo alterado com secesso");
+                    Console.WriteLine("Sexo alterado com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -547,7 +547,7 @@ namespace Adocao_ONG
 
                     cmd.ExecuteNonQuery();
                     conexaoSql.Close();
-                    Console.WriteLine("Nome alterado com secesso");
+                    Console.WriteLine("Nome alterado com secesso!");
                     Console.ReadKey();
                     break;
 
@@ -592,7 +592,7 @@ namespace Adocao_ONG
 
             if (count == 0)
             {
-                Console.WriteLine("CPF digitado nao cadastrado");
+                Console.WriteLine("CPF digitado não cadastrado!");
                 Console.ReadKey();
                 conexaosql.Close();
                 return;
@@ -625,7 +625,7 @@ namespace Adocao_ONG
 
             if (count == 0)
             {
-                Console.WriteLine("CHIP digitado não cadastrado");
+                Console.WriteLine("CHIP digitado não cadastrado!");
                 Console.ReadKey();
                 conexaosql.Close();
                 return;
@@ -652,7 +652,7 @@ namespace Adocao_ONG
 
             conexaosql.Close();
 
-            Console.WriteLine("adoção concluida\n");
+            Console.WriteLine("Adoção concluida!\n");
             Console.ReadKey();
         }
         #endregion
