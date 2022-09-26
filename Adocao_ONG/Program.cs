@@ -12,7 +12,7 @@ namespace Adocao_ONG
         static void MostrarMenu()
         {
             Banco banco = new Banco();
-            int opcao = 10;
+            int opcao = 8;
 
             do
             {
@@ -21,14 +21,12 @@ namespace Adocao_ONG
                 Console.WriteLine(" |Opção 1 : Cadastrar Pessoa            |");
                 Console.WriteLine(" |Opção 2 : Alterar Dados Pessoa        |");
                 Console.WriteLine(" |Opção 3 : Mostrar Pessoas Cadastradas |");
-                Console.WriteLine(" |Opção 4 : Excluir Pessoa              |");
                 Console.WriteLine(" |======================================|");
-                Console.WriteLine(" |Opção 5 : Cadastrar Animal            |");
-                Console.WriteLine(" |Opção 6 : Alterar Dados Animal        |");
-                Console.WriteLine(" |Opção 7 : Mostrar Animais Cadastrados |");
-                Console.WriteLine(" |Opção 8 : Excluir Animal              |");
+                Console.WriteLine(" |Opção 4 : Cadastrar Animal            |");
+                Console.WriteLine(" |Opção 5 : Alterar Dados Animal        |");
+                Console.WriteLine(" |Opção 6 : Mostrar Animais Cadastrados |");
                 Console.WriteLine(" |======================================|");
-                Console.WriteLine(" |Opção 9 : Adotar um Animal            |");
+                Console.WriteLine(" |Opção 7 : Adotar um Animal            |");
                 Console.WriteLine(" |======================================|");
                 Console.WriteLine(" |Opção 0 : Sair                        |");
                 Console.WriteLine(" |======================================|");
@@ -69,35 +67,23 @@ namespace Adocao_ONG
 
                     case 4:
                         Console.Clear();
-                        banco.DeletarPessoaBanco();
+                        banco.InserirAnimalBanco();
                         MostrarMenu();
                         break;
 
                     case 5:
                         Console.Clear();
-                        banco.InserirAnimalBanco();
+                        banco.AtualizarAnimalBanco();
                         MostrarMenu();
                         break;
 
                     case 6:
                         Console.Clear();
-                        banco.AtualizarAnimalBanco();
-                        MostrarMenu();
-                        break;
-
-                    case 7:
-                        Console.Clear();
                         banco.SelecionarAnimaisBanco();
                         MostrarMenu();
                         break;
 
-                    case 8:
-                        Console.Clear();
-                        banco.DeletarAnimalBanco();
-                        MostrarMenu();
-                        break;
-
-                    case 9:
+                    case 7:
                         Console.Clear();
                         banco.AdotarAnimal();
                         MostrarMenu();

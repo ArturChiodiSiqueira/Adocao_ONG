@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Adocao_ONG
 {
@@ -23,8 +16,8 @@ namespace Adocao_ONG
         {
             return Conexao;
         }
-        
-        #region CRUD PESSOA
+
+        #region CRUD sem DELETE - PESSOA
         public void InserirPessoaBanco()
         {
             Pessoa pessoa = new Pessoa();
@@ -120,31 +113,6 @@ namespace Adocao_ONG
             Console.ReadKey();
         }
 
-        public void DeletarPessoaBanco()
-        {
-            Pessoa pessoa = new Pessoa();
-
-            Banco conn = new Banco();
-            SqlConnection conexaosql = new SqlConnection(conn.Caminho());
-            conexaosql.Open();
-
-            SqlCommand cmd = new SqlCommand();
-
-            cmd.CommandText = "DELETE FROM Pessoa where Cpf = @Cpf";
-            cmd.Connection = conexaosql;
-
-            Console.Write("Informe o CPF da pessoa que deseja deletar: ");
-            string cpfRemovido = Console.ReadLine();
-
-            cmd.Parameters.Add(new SqlParameter("@Cpf", cpfRemovido));
-
-            cmd.ExecuteNonQuery();
-
-            Console.WriteLine("Pessoa deletada com sucesso.");
-
-            conexaosql.Close();
-        }
-
         public void AtualizarPessoaBanco()
         {
             int count = 0;
@@ -152,7 +120,7 @@ namespace Adocao_ONG
             Banco conn = new Banco();
             SqlConnection conexaoSql = new SqlConnection(conn.Caminho());
 
-            Console.Write("Informe o CPF que deseja atualizar");
+            Console.Write("Informe o CPF que deseja atualizar: ");
             string cpfDigitado = Console.ReadLine();
 
             conexaoSql.Open();
@@ -310,7 +278,7 @@ namespace Adocao_ONG
         }
         #endregion
 
-        #region CRUD ANIMAL
+        #region CRUD sem DELETE - ANIMAL
         public void InserirAnimalBanco()
         {
             int count = 0;
@@ -406,31 +374,6 @@ namespace Adocao_ONG
             Console.ReadKey();
         }
 
-        public void DeletarAnimalBanco()
-        {
-            Animal anima = new Animal();
-
-            Banco conn = new Banco();
-            SqlConnection conexaosql = new SqlConnection(conn.Caminho());
-            conexaosql.Open();
-
-            SqlCommand cmd = new SqlCommand();
-
-            cmd.CommandText = "DELETE FROM Animal where Chip = @Chip";
-            cmd.Connection = conexaosql;
-
-            Console.Write("Informe o CHIP do animal que deseja deletar: ");
-            int chipRemovido = int.Parse(Console.ReadLine());
-
-            cmd.Parameters.Add(new SqlParameter("@Chip", chipRemovido));
-
-            cmd.ExecuteNonQuery();
-
-            Console.WriteLine("Animal deletado com sucesso.");
-
-            conexaosql.Close();
-        }
-
         public void AtualizarAnimalBanco()
         {
             int count = 0;
@@ -438,7 +381,7 @@ namespace Adocao_ONG
             Banco conn = new Banco();
             SqlConnection conexaoSql = new SqlConnection(conn.Caminho());
 
-            Console.Write("Informe o CHIP que deseja atualizar");
+            Console.Write("Informe o CHIP que deseja atualizar: ");
             string chipDigitado = Console.ReadLine();
 
             conexaoSql.Open();
@@ -472,7 +415,7 @@ namespace Adocao_ONG
             int opcao = 0;
             do
             {
-                Console.Write("Informe a opcao que deseja alterar: ");
+                Console.WriteLine("Informe a opcao que deseja alterar: ");
                 Console.WriteLine(" 1 - Familia");
                 Console.WriteLine(" 2 - Raça");
                 Console.WriteLine(" 3 - Sexo");
